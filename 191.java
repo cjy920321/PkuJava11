@@ -1,24 +1,13 @@
 public class Solution {
-    public int lengthOfLastWord(String s) {
-        int length=s.length();
-		char space=' ';
-		int last_word_lengh=0;
-		for (int i = length-1; i >=0; i--) { //从后往前找
-			if(space==s.charAt(i))
-			{
-			 if(0!=last_word_lengh)//如果不是0，那么说明已经测出lastword长度了
-				{
-					break;
-				
-				}
-				
-				
-			}
-			else {
-				 last_word_lengh++;
-			}
-			
-		}
-		return last_word_lengh;
+    // you need to treat n as an unsigned value
+    public int hammingWeight(int n) {
+      int count =0;
+    for(int i =0; i< 32; i++){ //最多32位
+        if((n & 1) == 1){ //和1进行与运算，看末位是否=1
+            count++;
+        }
+        n >>>= 1;//无符号的右移动一位
+    }
+    return count;
     }
 }
